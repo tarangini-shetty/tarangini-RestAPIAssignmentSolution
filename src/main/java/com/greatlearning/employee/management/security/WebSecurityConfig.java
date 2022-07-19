@@ -32,12 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 				.antMatchers(HttpMethod.PUT, "/api/employees/**").hasAuthority("ADMIN")
 				.antMatchers(HttpMethod.DELETE, "/api/employees/**").hasAuthority("ADMIN")
 				.antMatchers(HttpMethod.GET, "/api/employees/**").hasAuthority("ADMIN")
-				.anyRequest().authenticated().and().httpBasic()
-//	            .formLogin().loginProcessingUrl("/login").successForwardUrl("/student/list").permitAll()
-//	            .and()
-//	            .logout().logoutSuccessUrl("/login").permitAll()
-//	            .and()
-//	            .exceptionHandling().accessDeniedPage("/student/403")
+				.anyRequest().authenticated()
+				.and().httpBasic()
 				.and().cors().and().csrf().disable();
 	}
 	
